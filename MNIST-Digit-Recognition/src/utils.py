@@ -2,6 +2,32 @@
 
 import torch
 import numpy as np
+import yaml
+from pathlib import Path
+
+
+def load_config(config_path: str = "configs/config.yaml") -> dict:
+    """
+    YAML konfigürasyon dosyasını okur ve dictionary olarak döndürür.
+    
+    Args:
+        config_path: Konfigürasyon dosyasının yolu (varsayılan: "configs/config.yaml")
+    
+    Returns:
+        dict: Konfigürasyon parametrelerini içeren dictionary
+    
+    Raises:
+        FileNotFoundError: Dosya bulunamazsa
+    """
+    config_file = Path(config_path)
+    
+    if not config_file.exists():
+        raise FileNotFoundError(f"Konfigürasyon dosyası bulunamadı: {config_path}")
+    
+    with open(config_file, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    
+    return config
 
 
 def get_device() -> torch.device:

@@ -1,0 +1,42 @@
+# ============================================================================
+# MNIST Digit Recognition - Configuration File
+# ============================================================================
+
+# Seed for reproducibility
+seed: 42  # Random seed for reproducibility
+
+# ============================================================================
+# Data Configuration
+# ============================================================================
+data:
+  data_dir: "data"  # Directory where MNIST dataset will be stored
+  batch_size: 64  # Batch size - optimal for RTX 4060 8GB GPU
+  num_workers: 4  # Number of data loading workers - safe value for Windows
+  pin_memory: true  # Pin memory for faster GPU transfer
+  validation_split: 0.1  # 10% of training data will be used for validation
+
+# ============================================================================
+# Model Configuration
+# ============================================================================
+model:
+  input_size: 28  # MNIST image size (28x28 pixels)
+  num_classes: 10  # Number of digit classes (0-9)
+  dropout_rate: 0.5  # Dropout rate to prevent overfitting
+
+# ============================================================================
+# Training Configuration
+# ============================================================================
+training:
+  epochs: 15  # Number of training epochs
+  learning_rate: 0.001  # Learning rate for optimizer
+  weight_decay: 0.0001  # L2 regularization coefficient
+  early_stopping_patience: 5  # Number of epochs to wait before early stopping
+
+# ============================================================================
+# Paths Configuration
+# ============================================================================
+paths:
+  model_save_dir: "outputs/models"  # Directory to save trained models
+  figures_dir: "outputs/figures"  # Directory to save plots and visualizations
+  best_model_name: "best_model.pt"  # Filename for the best model checkpoint
+
