@@ -72,7 +72,7 @@ Text analysis, language models, and NLP applications for understanding and gener
 
 ## 📫 Contact
 
-- **GitHub:** [GitHub Profile](https://github.com/gunbaz)
+- **GitHub:** [Gunbaz](https://github.com/gunbaz)
 
 
 Feel free to reach out for collaborations, questions, or discussions about AI/ML projects!
