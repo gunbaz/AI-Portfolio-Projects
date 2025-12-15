@@ -1,0 +1,31 @@
+# ============================================================================
+# PyTorch & Deep Learning Framework
+# ============================================================================
+# PyTorch GPU destekli (CUDA 12.4 uyumlu, 12.9 ile de çalışır)
+torch==2.2.0  # Derin öğrenme framework'ü - GPU desteği için CUDA 12.4 uyumlu
+torchvision==0.17.0  # MNIST dataset ve görüntü transformasyonları için
+
+# ============================================================================
+# Veri Bilimi & Görselleştirme
+# ============================================================================
+numpy==1.26.4  # Tensor işlemleri ve sayısal hesaplamalar için temel kütüphane
+matplotlib==3.8.2  # Eğitim grafikleri ve confusion matrix görselleştirme
+seaborn==0.13.2  # Daha güzel ve profesyonel grafikler için
+
+# ============================================================================
+# Machine Learning Yardımcıları
+# ============================================================================
+scikit-learn==1.4.0  # Metrics: confusion matrix, classification report için
+tqdm==4.66.1  # Progress bar - eğitim sırasında ilerlemeyi görmek için
+
+# ============================================================================
+# Konfigürasyon
+# ============================================================================
+pyyaml==6.0.1  # config.yaml dosyasını okumak ve yazmak için
+
+# ============================================================================
+# Notebook (Opsiyonel - EDA için)
+# ============================================================================
+jupyter==1.0.0  # Jupyter Notebook arayüzü - veri keşfi için
+ipykernel==6.29.0  # Jupyter için IPython kernel
+
