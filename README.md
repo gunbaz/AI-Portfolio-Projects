@@ -72,8 +72,8 @@ Text analysis, language models, and NLP applications for understanding and gener
 
 ## 📫 Contact
 
-- **GitHub:** [Your GitHub Profile](https://github.com/yourusername)
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/yourprofile) *(optional)*
+- **GitHub:** [GitHub Profile](https://github.com/gunbaz)
+
 
 Feel free to reach out for collaborations, questions, or discussions about AI/ML projects!
 
