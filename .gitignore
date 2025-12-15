@@ -1,0 +1,89 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+
+# =====================
+# Virtual Environments
+# =====================
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# =====================
+# IDE & Editors
+# =====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+
+# =====================
+# Jupyter Notebooks
+# =====================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =====================
+# OS Generated Files
+# =====================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =====================
+# Model Files (büyük dosyalar)
+# =====================
+*.pt
+*.pth
+*.pkl
+*.h5
+*.onnx
+*.pb
+
+# =====================
+# Data Files (büyük dosyalar)
+# =====================
+*.csv
+*.parquet
+*.json
+!configs/*.json
+*.xlsx
+*.xls
+
+# =====================
+# Log Files
+# =====================
+*.log
+logs/
+mlruns/
+wandb/
+
+# =====================
+# Misc
+# =====================
+.env
+.env.local
+*.bak
+tmp/
+temp/
+
