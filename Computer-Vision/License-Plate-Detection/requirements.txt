@@ -1,0 +1,43 @@
+# ============================================
+# YOLOv8 License Plate Detection - Requirements
+# Python 3.11.0 | CUDA 12.4 | Windows 11
+# ============================================
+
+# ============================================
+# 1. YOLOv8 & Deep Learning
+# ============================================
+ultralytics>=8.0.0  # YOLOv8 ana kütüphanesi (PyTorch dahil gelir)
+torch>=2.1.0  # PyTorch - GPU destekli, CUDA 12.4 için uyumlu
+torchvision>=0.16.0  # PyTorch görüntü işleme kütüphanesi
+
+# ============================================
+# 2. Veri İşleme & Görselleştirme
+# ============================================
+numpy>=1.24.0  # Sayısal hesaplamalar ve array işlemleri
+matplotlib>=3.7.0  # Veri görselleştirme ve grafik çizimi
+seaborn>=0.12.0  # İstatistiksel veri görselleştirme
+opencv-python>=4.8.0  # Görüntü işleme ve real-time detection için
+Pillow>=10.0.0  # Görüntü okuma/yazma ve işleme
+
+# ============================================
+# 3. Dataset & Roboflow
+# ============================================
+roboflow>=1.1.0  # Dataset indirme ve yönetimi için
+
+# ============================================
+# 4. ML Yardımcıları
+# ============================================
+scikit-learn>=1.3.0  # Model değerlendirme metrikleri için
+tqdm>=4.65.0  # Progress bar gösterimi
+
+# ============================================
+# 5. Konfigürasyon
+# ============================================
+pyyaml>=6.0  # YAML konfigürasyon dosyalarını okuma/yazma
+
+# ============================================
+# 6. Notebook
+# ============================================
+jupyter>=1.0.0  # Jupyter notebook ortamı
+ipykernel>=6.25.0  # Jupyter için Python kernel
+

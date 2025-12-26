@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# YOLOv8 Specific
+runs/detect/
+runs/train/
+*.pt
+*.onnx
+*.engine
+*.mlmodel
+
+# Data (büyük dosyalar)
+data/images/
+data/labels/
+data/*.zip
+data/*.tar.gz
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+
+# Ancak outputs/figures içindeki görselleri KORU
+!outputs/figures/*.png
+!outputs/figures/*.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+wandb/
+
