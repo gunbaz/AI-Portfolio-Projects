@@ -1,0 +1,96 @@
+# ============================================
+# YOLOv8 License Plate Detection - Config
+# ============================================
+# Bu yapılandırma dosyası, plaka tespiti modeli eğitimi için
+# tüm hiperparametreleri ve ayarları içerir.
+# Donanım: NVIDIA RTX 4060 8GB
+# Dataset: 21,173 eğitim görüntüsü, tek sınıf (License_Plate)
+
+# ============================================
+# MODEL AYARLARI
+# ============================================
+# YOLOv8 model varyantları: n (nano), s (small), m (medium), l (large), x (xlarge)
+# Nano model hızlı eğitim ve inference sağlar, başlangıç için idealdir.
+# Daha yüksek doğruluk için s veya m modelleri denenebilir.
+model:
+  name: yolov8n  # Nano model - hızlı ve hafif, RTX 4060 için ideal başlangıç
+  pretrained: true  # COCO pre-trained ağırlıkları kullan (transfer learning)
+
+# ============================================
+# DATASET AYARLARI
+# ============================================
+# Roboflow'dan indirilen dataset yapısı
+# data.yaml dosyası sınıf isimlerini ve yolları içerir
+dataset:
+  yaml_path: data/data.yaml  # Dataset konfigürasyon dosyası
+  train: data/train/images  # Eğitim görüntüleri (21,173 adet)
+  val: data/valid/images  # Doğrulama görüntüleri
+  test: data/test/images  # Test görüntüleri
+
+# ============================================
+# EĞİTİM AYARLARI
+# ============================================
+# Eğitim sürecini kontrol eden temel parametreler
+# Batch size ve worker sayısı GPU belleğine göre ayarlanmıştır
+training:
+  epochs: 50  # Toplam eğitim döngüsü sayısı (başlangıç için yeterli)
+  batch_size: 16  # Her iterasyondaki görüntü sayısı (8GB VRAM için optimize)
+  imgsz: 640  # Giriş görüntü boyutu (YOLOv8 standart boyutu)
+  patience: 10  # Early stopping: 10 epoch boyunca iyileşme olmazsa dur
+  save_period: 10  # Her 10 epoch'ta model checkpoint'i kaydet
+  workers: 4  # DataLoader paralel işçi sayısı (CPU çekirdek sayısına göre)
+
+# ============================================
+# OPTIMIZER AYARLARI
+# ============================================
+# AdamW optimizer modern deep learning için önerilen seçimdir
+# Learning rate schedule: lr0'dan lr0*lrf'ye cosine decay
+optimizer:
+  name: AdamW  # Optimizer türü (SGD, Adam, AdamW desteklenir)
+  lr0: 0.001  # Başlangıç öğrenme oranı
+  lrf: 0.01  # Final öğrenme oranı çarpanı (son lr = 0.001 * 0.01 = 0.00001)
+  momentum: 0.937  # SGD momentum / Adam beta1 değeri
+  weight_decay: 0.0005  # L2 regularization (overfitting önleme)
+
+# ============================================
+# AUGMENTATION AYARLARI
+# ============================================
+# Veri artırma teknikleri - modelin genelleme yeteneğini artırır
+# Plaka tespiti için özelleştirilmiş değerler
+augmentation:
+  # Renk Augmentasyonları (HSV uzayında)
+  hsv_h: 0.015  # Renk tonu değişimi (0-1 arası, düşük tutuldu)
+  hsv_s: 0.7  # Doygunluk değişimi (farklı aydınlatma koşulları için)
+  hsv_v: 0.4  # Parlaklık değişimi (gece/gündüz varyasyonları için)
+  
+  # Geometrik Augmentasyonlar
+  degrees: 0.0  # Döndürme açısı (plakalar genelde düz olduğu için 0)
+  translate: 0.1  # Öteleme oranı (görüntünün %10'u kadar kayma)
+  scale: 0.5  # Ölçekleme aralığı (0.5 = %50-%150 arası)
+  
+  # Flip Augmentasyonları
+  fliplr: 0.5  # Yatay çevirme olasılığı (%50)
+  flipud: 0.0  # Dikey çevirme (plakalar için kapalı - anlamsız olur)
+  
+  # Gelişmiş Augmentasyonlar
+  mosaic: 1.0  # Mosaic augmentation olasılığı (4 görüntüyü birleştirir)
+  mixup: 0.0  # Mixup augmentation (kapalı - tek sınıf için gereksiz)
+
+# ============================================
+# ÇIKTI AYARLARI
+# ============================================
+# Eğitim sonuçlarının kaydedileceği dizin yapısı
+# Her eğitim için benzersiz isim kullanılabilir
+output:
+  project: outputs/runs  # Ana çıktı klasörü
+  name: license_plate_v1  # Bu eğitim için alt klasör ismi
+  exist_ok: true  # Aynı isimde klasör varsa üzerine yaz
+
+# ============================================
+# DİĞER AYARLAR
+# ============================================
+# Tekrarlanabilirlik ve debug için gerekli ayarlar
+misc:
+  seed: 42  # Rastgelelik tohumu (tekrarlanabilir sonuçlar için)
+  deterministic: true  # Deterministik mod (tam tekrarlanabilirlik)
+  verbose: true  # Detaylı log çıktısı (eğitim sürecini izlemek için)
